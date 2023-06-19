@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Big Data Lab01</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="big-data-lab01">Big Data Lab01</h1>
+<ol>
+<li>List all employees, i.e. all tuples in the jbemployee relation.</li>
+</ol>
+<p><code>select * from jbemployee;</code></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>salary</th>
+<th>manager</th>
+<th>birthyear</th>
+<th>startyear</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>Ross, Stanley</td>
+<td>15908</td>
+<td>199</td>
+<td>1927</td>
+<td>1945</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Ross, Stuart</td>
+<td>12067</td>
+<td></td>
+<td>1931</td>
+<td>1932</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Edwards, Peter</td>
+<td>9000</td>
+<td>199</td>
+<td>1928</td>
+<td>1958</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Thompson, Bob</td>
+<td>13000</td>
+<td>199</td>
+<td>1930</td>
+<td>1970</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Smythe, Carol</td>
+<td>9050</td>
+<td>199</td>
+<td>1929</td>
+<td>1967</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Hayes, Evelyn</td>
+<td>10100</td>
+<td>199</td>
+<td>1931</td>
+<td>1963</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Evans, Michael</td>
+<td>5000</td>
+<td>32</td>
+<td>1952</td>
+<td>1974</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Raveen, Lemont</td>
+<td>11985</td>
+<td>26</td>
+<td>1950</td>
+<td>1974</td>
+</tr>
+<tr>
+<td>55</td>
+<td>James, Mary</td>
+<td>12000</td>
+<td>199</td>
+<td>1920</td>
+<td>1969</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Williams, Judy</td>
+<td>9000</td>
+<td>199</td>
+<td>1935</td>
+<td>1969</td>
+</tr>
+<tr>
+<td>129</td>
+<td>Thomas, Tom</td>
+<td>10000</td>
+<td>199</td>
+<td>1941</td>
+<td>1962</td>
+</tr>
+<tr>
+<td>157</td>
+<td>Jones, Tim</td>
+<td>12000</td>
+<td>199</td>
+<td>1940</td>
+<td>1960</td>
+</tr>
+<tr>
+<td>199</td>
+<td>Bullock, J.D.</td>
+<td>27000</td>
+<td></td>
+<td>1920</td>
+<td>1920</td>
+</tr>
+<tr>
+<td>215</td>
+<td>Collins, Joanne</td>
+<td>7000</td>
+<td>10</td>
+<td>1950</td>
+<td>1971</td>
+</tr>
+<tr>
+<td>430</td>
+<td>Brunet, Paul C.</td>
+<td>17674</td>
+<td>129</td>
+<td>1938</td>
+<td>1959</td>
+</tr>
+<tr>
+<td>843</td>
+<td>Schmidt, Herman</td>
+<td>11204</td>
+<td>26</td>
+<td>1936</td>
+<td>1956</td>
+</tr>
+<tr>
+<td>994</td>
+<td>Iwano, Masahiro</td>
+<td>15641</td>
+<td>129</td>
+<td>1944</td>
+<td>1970</td>
+</tr>
+<tr>
+<td>1110</td>
+<td>Smith, Paul</td>
+<td>6000</td>
+<td>33</td>
+<td>1952</td>
+<td>1973</td>
+</tr>
+<tr>
+<td>1330</td>
+<td>Onstad, Richard</td>
+<td>8779</td>
+<td>13</td>
+<td>1952</td>
+<td>1971</td>
+</tr>
+<tr>
+<td>1523</td>
+<td>Zugnoni, Arthur A.</td>
+<td>19868</td>
+<td>129</td>
+<td>1928</td>
+<td>1949</td>
+</tr>
+<tr>
+<td>1639</td>
+<td>Choy, Wanda</td>
+<td>11160</td>
+<td>55</td>
+<td>1947</td>
+<td>1970</td>
+</tr>
+<tr>
+<td>2398</td>
+<td>Wallace, Maggie J.</td>
+<td>7880</td>
+<td>26</td>
+<td>1940</td>
+<td>1959</td>
+</tr>
+<tr>
+<td>4901</td>
+<td>Bailey, Chas M.</td>
+<td>8377</td>
+<td>32</td>
+<td>1956</td>
+<td>1975</td>
+</tr>
+<tr>
+<td>5119</td>
+<td>Bono, Sonny</td>
+<td>13621</td>
+<td>55</td>
+<td>1939</td>
+<td>1963</td>
+</tr>
+<tr>
+<td>5219</td>
+<td>Schwarz, Jason B.</td>
+<td>13374</td>
+<td>33</td>
+<td>1944</td>
+<td>1959</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>List the name of all departments in alphabetical order. Note: by “name” we mean
+the name attribute for all tuples in the jbdept relation.</li>
+</ol>
+<p><code>select name from jbdept order by name;</code></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bargain</td>
+</tr>
+<tr>
+<td>Book</td>
+</tr>
+<tr>
+<td>Candy</td>
+</tr>
+<tr>
+<td>Children's</td>
+</tr>
+<tr>
+<td>Children's</td>
+</tr>
+<tr>
+<td>Furniture</td>
+</tr>
+<tr>
+<td>Giftwrap</td>
+</tr>
+<tr>
+<td>Jewelry</td>
+</tr>
+<tr>
+<td>Junior Miss</td>
+</tr>
+<tr>
+<td>Junior's</td>
+</tr>
+<tr>
+<td>Linens</td>
+</tr>
+<tr>
+<td>Major Appliances</td>
+</tr>
+<tr>
+<td>Men's</td>
+</tr>
+<tr>
+<td>Sportswear</td>
+</tr>
+<tr>
+<td>Stationary</td>
+</tr>
+<tr>
+<td>Toys</td>
+</tr>
+<tr>
+<td>Women's</td>
+</tr>
+<tr>
+<td>Women's</td>
+</tr>
+<tr>
+<td>Women's</td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>What parts are not in store, i.e. qoh = 0? (qoh = Quantity On Hand)</li>
+</ol>
+<p><code>select * from jbparts where qoh = 0;</code></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>color</th>
+<th>weight</th>
+<th>qoh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td>card reader</td>
+<td>gray</td>
+<td>327</td>
+<td>0</td>
+</tr>
+<tr>
+<td>12</td>
+<td>card punch</td>
+<td>gray</td>
+<td>427</td>
+<td>0</td>
+</tr>
+<tr>
+<td>13</td>
+<td>paper tape reader</td>
+<td>black</td>
+<td>107</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>paper tape punch</td>
+<td>black</td>
+<td>147</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<ol start="4">
+<li>Which employees have a salary between 9000 (included) and 10000 (included)?</li>
+</ol>
+<p><code>select * from jbemployee where salary between 9000 and 10000;</code></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>salary</th>
+<th>manager</th>
+<th>birthyear</th>
+<th>startyear</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13</td>
+<td>Edwards, Peter</td>
+<td>9000</td>
+<td>199</td>
+<td>1928</td>
+<td>1958</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Smythe, Carol</td>
+<td>9050</td>
+<td>199</td>
+<td>1929</td>
+<td>1967</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Williams, Judy</td>
+<td>9000</td>
+<td>199</td>
+<td>1935</td>
+<td>1969</td>
+</tr>
+<tr>
+<td>129</td>
+<td>Thomas, Tom</td>
+<td>10000</td>
+<td>199</td>
+<td>1941</td>
+<td>1962</td>
+</tr>
+</tbody>
+</table>
+<ol start="5">
+<li>What was the age of each employee when they started working (startyear)?</li>
+</ol>
+<p><code>select *,startyear - birthyear age from jbemployee;</code></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>salary</th>
+<th>manager</th>
+<th>birthyear</th>
+<th>startyear</th>
+<th>age</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>Ross, Stanley</td>
+<td>15908</td>
+<td>199</td>
+<td>1927</td>
+<td>1945</td>
+<td>18</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Ross, Stuart</td>
+<td>12067</td>
+<td></td>
+<td>1931</td>
+<td>1932</td>
+<td>1</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Edwards, Peter</td>
+<td>9000</td>
+<td>199</td>
+<td>1928</td>
+<td>1958</td>
+<td>30</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Thompson, Bob</td>
+<td>13000</td>
+<td>199</td>
+<td>1930</td>
+<td>1970</td>
+<td>40</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Smythe, Carol</td>
+<td>9050</td>
+<td>199</td>
+<td>1929</td>
+<td>1967</td>
+<td>38</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Hayes, Evelyn</td>
+<td>10100</td>
+<td>199</td>
+<td>1931</td>
+<td>1963</td>
+<td>32</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Evans, Michael</td>
+<td>5000</td>
+<td>32</td>
+<td>1952</td>
+<td>1974</td>
+<td>22</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Raveen, Lemont</td>
+<td>11985</td>
+<td>26</td>
+<td>1950</td>
+<td>1974</td>
+<td>24</td>
+</tr>
+<tr>
+<td>55</td>
+<td>James, Mary</td>
+<td>12000</td>
+<td>199</td>
+<td>1920</td>
+<td>1969</td>
+<td>49</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Williams, Judy</td>
+<td>9000</td>
+<td>199</td>
+<td>1935</td>
+<td>1969</td>
+<td>34</td>
+</tr>
+<tr>
+<td>129</td>
+<td>Thomas, Tom</td>
+<td>10000</td>
+<td>199</td>
+<td>1941</td>
+<td>1962</td>
+<td>21</td>
+</tr>
+<tr>
+<td>157</td>
+<td>Jones, Tim</td>
+<td>12000</td>
+<td>199</td>
+<td>1940</td>
+<td>1960</td>
+<td>20</td>
+</tr>
+<tr>
+<td>199</td>
+<td>Bullock, J.D.</td>
+<td>27000</td>
+<td></td>
+<td>1920</td>
+<td>1920</td>
+<td>0</td>
+</tr>
+<tr>
+<td>215</td>
+<td>Collins, Joanne</td>
+<td>7000</td>
+<td>10</td>
+<td>1950</td>
+<td>1971</td>
+<td>21</td>
+</tr>
+<tr>
+<td>430</td>
+<td>Brunet, Paul C.</td>
+<td>17674</td>
+<td>129</td>
+<td>1938</td>
+<td>1959</td>
+<td>21</td>
+</tr>
+<tr>
+<td>843</td>
+<td>Schmidt, Herman</td>
+<td>11204</td>
+<td>26</td>
+<td>1936</td>
+<td>1956</td>
+<td>20</td>
+</tr>
+<tr>
+<td>994</td>
+<td>Iwano, Masahiro</td>
+<td>15641</td>
+<td>129</td>
+<td>1944</td>
+<td>1970</td>
+<td>26</td>
+</tr>
+<tr>
+<td>1110</td>
+<td>Smith, Paul</td>
+<td>6000</td>
+<td>33</td>
+<td>1952</td>
+<td>1973</td>
+<td>21</td>
+</tr>
+<tr>
+<td>1330</td>
+<td>Onstad, Richard</td>
+<td>8779</td>
+<td>13</td>
+<td>1952</td>
+<td>1971</td>
+<td>19</td>
+</tr>
+<tr>
+<td>1523</td>
+<td>Zugnoni, Arthur A.</td>
+<td>19868</td>
+<td>129</td>
+<td>1928</td>
+<td>1949</td>
+<td>21</td>
+</tr>
+<tr>
+<td>1639</td>
+<td>Choy, Wanda</td>
+<td>11160</td>
+<td>55</td>
+<td>1947</td>
+<td>1970</td>
+<td>23</td>
+</tr>
+<tr>
+<td>2398</td>
+<td>Wallace, Maggie J.</td>
+<td>7880</td>
+<td>26</td>
+<td>1940</td>
+<td>1959</td>
+<td>19</td>
+</tr>
+<tr>
+<td>4901</td>
+<td>Bailey, Chas M.</td>
+<td>8377</td>
+<td>32</td>
+<td>1956</td>
+<td>1975</td>
+<td>19</td>
+</tr>
+<tr>
+<td>5119</td>
+<td>Bono, Sonny</td>
+<td>13621</td>
+<td>55</td>
+<td>1939</td>
+<td>1963</td>
+<td>24</td>
+</tr>
+<tr>
+<td>5219</td>
+<td>Schwarz, Jason B.</td>
+<td>13374</td>
+<td>33</td>
+<td>1944</td>
+<td>1959</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<ol start="6">
+<li>Which employees have a last name ending with “son”?</li>
+</ol>
+<p><code>select * from jbemployee where name like '%son,%';</code></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>salary</th>
+<th>manager</th>
+<th>birthyear</th>
+<th>startyear</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>26</td>
+<td>Thompson, Bob</td>
+<td>13000</td>
+<td>199</td>
+<td>1930</td>
+<td>1970</td>
+</tr>
+</tbody>
+</table>
+<ol start="7">
+<li>Which items (note items, not parts) have been delivered by a supplier called
+Fisher-Price? Formulate this query using a subquery in the where-clause.</li>
+</ol>
+<p><code>select * from jbitem where supplier = (select id from jbsupplier where name = 'Fisher-Price');</code></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>dept</th>
+<th>price</th>
+<th>qoh</th>
+<th>supplier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>43</td>
+<td>Maze</td>
+<td>49</td>
+<td>325</td>
+<td>200</td>
+<td>89</td>
+</tr>
+<tr>
+<td>107</td>
+<td>The 'Feel' Book</td>
+<td>35</td>
+<td>225</td>
+<td>225</td>
+<td>89</td>
+</tr>
+<tr>
+<td>119</td>
+<td>Squeeze Ball</td>
+<td>49</td>
+<td>250</td>
+<td>400</td>
+<td>89</td>
+</tr>
+</tbody>
+</table>
+<ol start="8">
+<li>Formulate the same query as above, but without a subquery.</li>
+</ol>
+<p><code>select i.* from jbitem i, jbsupplier s where (i.supplier = s.id &amp;&amp; s.name = 'Fisher-Price');</code></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>dept</th>
+<th>price</th>
+<th>qoh</th>
+<th>supplier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>43</td>
+<td>Maze</td>
+<td>49</td>
+<td>325</td>
+<td>200</td>
+<td>89</td>
+</tr>
+<tr>
+<td>107</td>
+<td>The 'Feel' Book</td>
+<td>35</td>
+<td>225</td>
+<td>225</td>
+<td>89</td>
+</tr>
+<tr>
+<td>119</td>
+<td>Squeeze Ball</td>
+<td>49</td>
+<td>250</td>
+<td>400</td>
+<td>89</td>
+</tr>
+</tbody>
+</table>
+<ol start="9">
+<li>Show all cities that have suppliers located in them. Formulate this query using a
+subquery in the where-clause.</li>
+</ol>
+<p><code>select * from jbcity where id in (select city from jbsupplier);</code></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>Amherst</td>
+<td>Mass</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Boston</td>
+<td>Mass</td>
+</tr>
+<tr>
+<td>100</td>
+<td>New York</td>
+<td>NY</td>
+</tr>
+<tr>
+<td>106</td>
+<td>White Plains</td>
+<td>Neb</td>
+</tr>
+<tr>
+<td>118</td>
+<td>Hickville</td>
+<td>Okla</td>
+</tr>
+<tr>
+<td>303</td>
+<td>Atlanta</td>
+<td>Ga</td>
+</tr>
+<tr>
+<td>537</td>
+<td>Madison</td>
+<td>Wisc</td>
+</tr>
+<tr>
+<td>609</td>
+<td>Paxton</td>
+<td>Ill</td>
+</tr>
+<tr>
+<td>752</td>
+<td>Dallas</td>
+<td>Tex</td>
+</tr>
+<tr>
+<td>802</td>
+<td>Denver</td>
+<td>Colo</td>
+</tr>
+<tr>
+<td>841</td>
+<td>Salt Lake City</td>
+<td>Utah</td>
+</tr>
+<tr>
+<td>900</td>
+<td>Los Angeles</td>
+<td>Calif</td>
+</tr>
+<tr>
+<td>921</td>
+<td>San Diego</td>
+<td>Calif</td>
+</tr>
+<tr>
+<td>941</td>
+<td>San Francisco</td>
+<td>Calif</td>
+</tr>
+<tr>
+<td>981</td>
+<td>Seattle</td>
+<td>Wash</td>
+</tr>
+</tbody>
+</table>
+<ol start="10">
+<li>What is the name and color of the parts that are heavier than a card reader?
+Formulate this query using a subquery in the where-clause. (The SQL query must
+not contain the weight as a constant.)</li>
+</ol>
+<p><code>select name, color from jbparts where weight &gt; (select weight from jbparts where name = 'card reader');</code></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>disk drive</td>
+<td>black</td>
+</tr>
+<tr>
+<td>tape drive</td>
+<td>black</td>
+</tr>
+<tr>
+<td>line printer</td>
+<td>yellow</td>
+</tr>
+<tr>
+<td>card punch</td>
+<td>gray</td>
+</tr>
+</tbody>
+</table>
+<ol start="11">
+<li>Formulate the same query as above, but without a subquery. (The query must not
+contain the weight as a constant.)</li>
+</ol>
+<p><code>select p1.name, p1.color from jbparts p1 join jbparts p2 on p1.weight &gt; p2.weight where p2.name = 'card reader';</code></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>disk drive</td>
+<td>black</td>
+</tr>
+<tr>
+<td>tape drive</td>
+<td>black</td>
+</tr>
+<tr>
+<td>line printer</td>
+<td>yellow</td>
+</tr>
+<tr>
+<td>card punch</td>
+<td>gray</td>
+</tr>
+</tbody>
+</table>
+<ol start="12">
+<li>What is the average weight of black parts?</li>
+</ol>
+<p><code>select avg(weight) from jbparts where color = 'black';</code></p>
+<table>
+<thead>
+<tr>
+<th>avg(weight)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>347.2500</td>
+</tr>
+</tbody>
+</table>
+<ol start="13">
+<li>What is the total weight of all parts that each supplier in Massachusetts (“Mass”)
+has delivered? Retrieve the name and the total weight for each of these suppliers.
+Do not forget to take the quantity of delivered parts into account. Note that one
+row should be returned for each supplier</li>
+</ol>
+<p><code>select s.name,sum(s.quan * p.weight) as 'total weight' from ( 	select * from jbsupply s join ( 		select id,name from jbsupplier where city in ( 			select id from jbcity where state = 'mass' 		)  	)as slr on  s.supplier = slr.id )as s join jbparts as p on s.part = p.id  group by supplier ;</code></p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>total weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fisher-Price</td>
+<td>1135000</td>
+</tr>
+<tr>
+<td>DEC</td>
+<td>3120</td>
+</tr>
+</tbody>
+</table>
+<ol start="14">
+<li>Create a new relation (a table), with the same attributes as the table items using
+the CREATE TABLE syntax where you define every attribute explicitly (i.e. not
+as a copy of another table). Then fill the table with all items that cost less than the
+average price for items. Remember to define primary and foreign keys in your
+table!</li>
+</ol>
+<p><code>create table item(     id int unsigned,     name varchar(20),     dept int,     price int unsigned,     qoh int unsigned,     supplier int,     constraint pk_item primary key(id), 	constraint fk_deliver_supplier foreign key (supplier) references jbsupplier(id),     constraint fk_onshelf_dept foreign key (dept) references jbdept(id) );</code></p>
+<p><code>select * from jbitem where price &lt; (select avg(price) from jbitem);</code></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>dept</th>
+<th>price</th>
+<th>qoh</th>
+<th>supplier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td>Wash Cloth</td>
+<td>1</td>
+<td>75</td>
+<td>575</td>
+<td>213</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Bellbottoms</td>
+<td>43</td>
+<td>450</td>
+<td>600</td>
+<td>33</td>
+</tr>
+<tr>
+<td>21</td>
+<td>ABC Blocks</td>
+<td>1</td>
+<td>198</td>
+<td>405</td>
+<td>125</td>
+</tr>
+<tr>
+<td>23</td>
+<td>1 lb Box</td>
+<td>10</td>
+<td>215</td>
+<td>100</td>
+<td>42</td>
+</tr>
+<tr>
+<td>25</td>
+<td>2 lb Box, Mix</td>
+<td>10</td>
+<td>450</td>
+<td>75</td>
+<td>42</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Earrings</td>
+<td>14</td>
+<td>1000</td>
+<td>20</td>
+<td>199</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Maze</td>
+<td>49</td>
+<td>325</td>
+<td>200</td>
+<td>89</td>
+</tr>
+<tr>
+<td>106</td>
+<td>Clock Book</td>
+<td>49</td>
+<td>198</td>
+<td>150</td>
+<td>125</td>
+</tr>
+<tr>
+<td>107</td>
+<td>The 'Feel' Book</td>
+<td>35</td>
+<td>225</td>
+<td>225</td>
+<td>89</td>
+</tr>
+<tr>
+<td>118</td>
+<td>Towels, Bath</td>
+<td>26</td>
+<td>250</td>
+<td>1000</td>
+<td>213</td>
+</tr>
+<tr>
+<td>119</td>
+<td>Squeeze Ball</td>
+<td>49</td>
+<td>250</td>
+<td>400</td>
+<td>89</td>
+</tr>
+<tr>
+<td>120</td>
+<td>Twin Sheet</td>
+<td>26</td>
+<td>800</td>
+<td>750</td>
+<td>213</td>
+</tr>
+<tr>
+<td>165</td>
+<td>Jean</td>
+<td>65</td>
+<td>825</td>
+<td>500</td>
+<td>33</td>
+</tr>
+<tr>
+<td>258</td>
+<td>Shirt</td>
+<td>58</td>
+<td>650</td>
+<td>1200</td>
+<td>33</td>
+</tr>
+</tbody>
+</table>
+<p><code> insert into item values    ( 11, 'Wash Cloth',         1,   75,  575, 213),    ( 19, 'Bellbottoms',       43,  450,  600,  33),    ( 21, 'ABC Blocks',         1,  198,  405, 125),    ( 23, '1 lb Box',          10,  215,  100,  42),    ( 25, '2 lb Box, Mix',     10,  450,   75,  42),    ( 26, 'Earrings',          14, 1000,   20, 199),    ( 43, 'Maze',              49,  325,  200,  89),    (106, 'Clock Book',        49,  198,  150, 125),    (107, 'The ''Feel'' Book', 35,  225,  225,  89),    (118, 'Towels, Bath',      26,  250, 1000, 213),    (119, 'Squeeze Ball',      49,  250,  400,  89),    (120, 'Twin Sheet',        26,  800,  750, 213),    (165, 'Jean',              65,  825,  500,  33),    (258, 'Shirt',             58,  650, 1200,  33) ;</code></p>
+<p><code>select * from item;</code></p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>dept</th>
+<th>price</th>
+<th>qoh</th>
+<th>supplier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td>Wash Cloth</td>
+<td>1</td>
+<td>75</td>
+<td>575</td>
+<td>213</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Bellbottoms</td>
+<td>43</td>
+<td>450</td>
+<td>600</td>
+<td>33</td>
+</tr>
+<tr>
+<td>21</td>
+<td>ABC Blocks</td>
+<td>1</td>
+<td>198</td>
+<td>405</td>
+<td>125</td>
+</tr>
+<tr>
+<td>23</td>
+<td>1 lb Box</td>
+<td>10</td>
+<td>215</td>
+<td>100</td>
+<td>42</td>
+</tr>
+<tr>
+<td>25</td>
+<td>2 lb Box, Mix</td>
+<td>10</td>
+<td>450</td>
+<td>75</td>
+<td>42</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Earrings</td>
+<td>14</td>
+<td>1000</td>
+<td>20</td>
+<td>199</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Maze</td>
+<td>49</td>
+<td>325</td>
+<td>200</td>
+<td>89</td>
+</tr>
+<tr>
+<td>106</td>
+<td>Clock Book</td>
+<td>49</td>
+<td>198</td>
+<td>150</td>
+<td>125</td>
+</tr>
+<tr>
+<td>107</td>
+<td>The 'Feel' Book</td>
+<td>35</td>
+<td>225</td>
+<td>225</td>
+<td>89</td>
+</tr>
+<tr>
+<td>118</td>
+<td>Towels, Bath</td>
+<td>26</td>
+<td>250</td>
+<td>1000</td>
+<td>213</td>
+</tr>
+<tr>
+<td>119</td>
+<td>Squeeze Ball</td>
+<td>49</td>
+<td>250</td>
+<td>400</td>
+<td>89</td>
+</tr>
+<tr>
+<td>120</td>
+<td>Twin Sheet</td>
+<td>26</td>
+<td>800</td>
+<td>750</td>
+<td>213</td>
+</tr>
+<tr>
+<td>165</td>
+<td>Jean</td>
+<td>65</td>
+<td>825</td>
+<td>500</td>
+<td>33</td>
+</tr>
+<tr>
+<td>258</td>
+<td>Shirt</td>
+<td>58</td>
+<td>650</td>
+<td>1200</td>
+<td>33</td>
+</tr>
+</tbody>
+</table>
+
+        
+        
+    </body>
+    </html>
